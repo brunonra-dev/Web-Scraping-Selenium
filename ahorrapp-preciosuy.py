@@ -8,13 +8,9 @@ driver = webdriver.Chrome(path)
 driver.get(website)
 
 
-searchproduct = "tata"
+searchproduct = "arroz"
 
-lista_botton = driver.find_element(By.XPATH, value='//*[@id="form:j_idt42"]/div[3]/span')
-lista_botton.click()
-
-# no escribe en ese lugar
-confirm_botton = driver.find_element(By.XPATH, value='//*[@id="form:panelcomparar"]/div[3]/div[1]/div[2]/span/input[@id="form:j_idt60_input"]')
+confirm_botton = driver.find_element(By.XPATH, value='//span/input[@id="form:j_idt59_input"]')
 confirm_botton.click()
 confirm_botton.send_keys(searchproduct)
 
@@ -23,6 +19,9 @@ confirm_botton.send_keys(searchproduct)
 buscar_botton = driver.find_element(By.XPATH, value='//*[@id="form:j_idt62"]/span[@class="ui-button-icon-left ui-icon ui-c fa fa-search"]')
 buscar_botton.click()
 
+#no anda
+carrito_botton = driver.find_element(By.XPATH, value='//*[@id="form:data:0:j_idt79"]/i')
+carrito_botton.click()
 
 comparar_botton = driver.find_element(By.XPATH, value='//*[@id="form:j_idt158"]/span[2]')
 comparar_botton.click()
