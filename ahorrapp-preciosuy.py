@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 
 website = 'https://www.precios.uy/sipc2Web/'
-path = 'C:/Users/3959/Ahorrap-mati/chromedriver_win32/chromedriver.exe'
+path = 'chromedriver_win32/chromedriver.exe'
 driver = webdriver.Chrome(path)
 driver.get(website)
 
