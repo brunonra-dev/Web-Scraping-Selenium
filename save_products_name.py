@@ -9,9 +9,7 @@ driver.get(website)
 
 #space at the end required
 market = "Ta - Ta - Suc. Cordon "
-market_products = {}
-market_products[market] = {}
-market_products[market]["products"] = {}
+products_list = []
 
 # click "Lista de precios"
 driver.find_element(By.XPATH, value='//*[@id="form:j_idt42"]/div[3]/span').click()
@@ -25,9 +23,6 @@ form.send_keys(market)
 #click "buscar" button
 search_button = driver.find_element(By.XPATH, value='//*[@id="form:j_idt63"]')
 search_button.click()
-
-market_products[market]["City"] = driver.find_element(By.XPATH, value='//*[@id="form:data3_list"]/li/div/div[1]/span[2]').text
-market_products[market]["Location"] = driver.find_element(By.XPATH, value='//*[@id="form:data3_list"]/li/div/div[1]/span[3]').text
 
 #click "cart" button
 add_market = driver.find_element(By.XPATH, value='//*[@id="form:data3:0:j_idt92"]')
@@ -47,10 +42,8 @@ rows = driver.find_elements(by=By.XPATH, value='//*[@id="form:resultado_data"]/t
 #get all products and save all in a dictionary
 for i in rows:
     split_name = i.text.split(",")
-    split_crap = split_name[1].split("\n$")
-    split_price_date = split_crap[1].split(" - ")
-    market_products[market]["products"][split_name[0]] = {}
-    market_products[market]["products"][split_name[0]]["price"] = split_price_date[0]
-    market_products[market]["products"][split_name[0]]["update_at"] = split_price_date[1]
+    products_list.append(split_name[0])
 
-print(market_products)
+print(products_list)
+
+driver.quit()
